@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DUCKS Task Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f4f4f4;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 500px;
+            padding: 0 15px;
+            box-sizing: border-box;
+            flex: 1;
+        }
+
+        .duck-logo img {
+            width: 80px;
+        }
+
+        .duck-amount {
+            font-size: 28px;
+            margin: 15px 0;
+        }
+
+        .tasks {
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .task {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 8px 0;
+        }
+
+        .task-title {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .task-details {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .task div {
+            text-align: left;
+        }
+
+        .task button {
+            background-color: #fff;
+            border: 1px solid #000;
+            border-radius: 15px;
+            padding: 5px 10px;
+            min-width: 70px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .task button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .show-more {
+            cursor: pointer;
+            margin: 10px;
+            color: #555;
+            text-decoration: underline;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            box-sizing: border-box;
+        }
+
+        .bottom-nav a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .bottom-nav img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .bottom-nav div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 10px;
+        }
+
+        .error-container,
+        .hots-container {
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 500px;
+            padding: 0 15px;
+            box-sizing: border-box;
+        }
+
+        .error-box,
+        .hots-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .error-box h2 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .hots-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .hots-message {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .connect-wallet-btn {
+            background-color: #000;
+            color: #fff;
+            border: none;
+
+            border-radius: 25px;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .connect-wallet-btn:hover {
+            background-color: #333;
+        }
+
+        .why-cant-container {
+            text-align: center;
+            margin: 15px 0;
+        }
+
+        .why-cant-container p {
+            cursor: pointer;
+            color: #000;
+            text-decoration: underline;
+            font-size: 16px;
+            display: inline;
+        }
+
+        .why-cant-hidden {
+            display: none;
+            background-color: white;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .extra-space {
+            height: 100px; /* Высота, достаточная для размещения кнопки поверх нижней панели */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="mainContainer">
+        <!-- Основная страница с заданиями -->
+        <div class="duck-logo">
+            <img src="duck-logo.png" alt="Duck Logo">
+        </div>
+        <div class="duck-amount">6,293 $DUCKS</div>
+        <div class="tasks">
+            <div class="task">
+                <div>
+                    <div class="task-title">Join the community</div>
+                    <div class="task-details">+1000 $DUCKS</div>
+                </div>
+                <button><span>Open</span></button>
+            </div>
+            <div class="task">
+                <div>
+                    <div class="task-title">Connect HOT wallet</div>
+                    <div class="task-details">15 HOT and +3000 $DUCKS <br> Spins the roulette wheel</div>
+                </div>
+                <button><span>Connect</span></button>
+            </div>
+            <div class="task">
+                <div>
+                    <div class="task-title">Invite your friends</div>
+                    <div class="task-details">+400 $DUCKS and +3 HOT <br> +15% to drop for an invited friend</div>
+                </div>
+                <button><span>Join</span></button>
+            </div>
+            <div class="task task-hidden" style="display: none;">
+                <div>
+                    <div class="task-title">Complete your profile</div>
+                    <div class="task-details">+500 $DUCKS</div>
+                </div>
+                <button><span>Complete</span></button>
+            </div>
+            <div class="task task-hidden" style="display: none;">
+                <div>
+                    <div class="task-title">Connect social media</div>
+                    <div class="task-details">+700 $DUCKS</div>
+                </div>
+                <button><span>Connect</span></button>
+            </div>
+            <div class="task task-hidden" style="display: none;">
+                <div>
+                    <div class="task-title">Verify Email</div>
+                    <div class="task-details">+300 $DUCKS</div>
+                </div>
+                <button><span>Verify</span></button>
+            </div>
+        </div>
+        <div class="show-more" id="showMoreButton">Show more tasks ⌄</div>
+        <div class="extra-space"></div> <!-- Добавляем дополнительное пространство -->
+    </div>
+
+    <div class="bottom-nav">
+        <a href="#" id="homeButton">
+            <div>
+                <img src="home.png" alt="Home">
+                <div>Home</div>
+            </div>
+        </a>
+        <a href="#" id="leaderboardButton">
+            <div>
+                <img src="leaderboard.png" alt="Leaderboard">
+                <div>Leaderboard</div>
+            </div>
+        </a>
+        <a href="#" id="getHotsButton">
+            <div>
+                <img src="get-hots.png" alt="Get HOT's">
+                <div>Get HOT's</div>
+            </div>
+        </a>
+    </div>
+
+    <div class="error-container" id="errorContainer" style="display: none;">
+        <div class="error-box">
+
+            <h2>Ошибка</h2>
+            <p>Этот раздел ещё не работает. Пожалуйста, попробуйте позже.</p>
+        </div>
+    </div>
+
+    <div class="hots-container" id="hotsContainer" style="display: none;">
+        <div class="hots-box">
+            <p class="hots-title">🔥 15 HOT'S AVAILABLE</p>
+            <p class="hots-message">Withdraw your HOT's directly to Here Wallet now.<br>Connect your wallet and get HOT and a free roulette spin.</p>
+            <button class="connect-wallet-btn">Connect wallet</button>
+            <div class="why-cant-container">
+                <p id="whyCantBtn">Why can't I get my HOT's out? ⌄</p>
+                <div class="why-cant-hidden" id="whyCantText">To withdraw your winnings in HOT or NEAR you need to
+                    connect your wallet and confirm the withdrawal in the here
+                    wallet app itself. Check the connection of the wallet. Also try to invite a few friends with Here
+                    Wallet to unblock the withdrawal, your friends and you will receive HOT to your wallet anyway.
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('showMoreButton').addEventListener('click', function () {
+            var hiddenTasks = document.querySelectorAll('.task-hidden');
+            hiddenTasks.forEach(function (task) {
+                if (task.style.display === 'none' || task.style.display === '') {
+                    task.style.display = 'flex';
+                    document.getElementById('showMoreButton').textContent = 'Show less tasks ⌃';
+                } else {
+                    task.style.display = 'none';
+                    document.getElementById('showMoreButton').textContent = 'Show more tasks ⌄';
+                }
+            });
+        });
+
+        document.getElementById('leaderboardButton').addEventListener('click', function () {
+            document.getElementById('mainContainer').style.display = 'none';
+            document.getElementById('errorContainer').style.display = 'block';
+            document.getElementById('hotsContainer').style.display = 'none';
+        });
+
+        document.getElementById('getHotsButton').addEventListener('click', function () {
+            document.getElementById('mainContainer').style.display = 'none';
+            document.getElementById('errorContainer').style.display = 'none';
+            document.getElementById('hotsContainer').style.display = 'block';
+        });
+
+        document.getElementById('homeButton').addEventListener('click', function () {
+            document.getElementById('mainContainer').style.display = 'block';
+            document.getElementById('errorContainer').style.display = 'none';
+            document.getElementById('hotsContainer').style.display = 'none';
+            initialTaskDisplay();
+        });
+
+        document.getElementById('whyCantBtn').addEventListener('click', function () {
+            var whyCantText = document.getElementById('whyCantText');
+            if (whyCantText.style.display === 'none' || whyCantText.style.display === '') {
+                whyCantText.style.display = 'block';
+                document.getElementById('whyCantBtn').textContent = "Why can't I get my HOT's out? ⌃";
+            } else {
+                whyCantText.style.display = 'none';
+                document.getElementById('whyCantBtn').textContent = "Why can't I get my HOT's out? ⌄";
+            }
+        });
+
+        function initialTaskDisplay() {
+            var tasks = document.querySelectorAll('.task');
+            tasks.forEach(function (task, index) {
+                if (index < 3) {
+                    task.style.display = 'flex';
+                } else {
+                    task.style.display = 'none';
+                }
+            });
+            document.getElementById('showMoreButton').textContent = 'Show more tasks ⌄';
+        }
+
+        // Инициализация начального состояния задач при загрузке страницы
+        window.addEventListener('DOMContentLoaded', (event) => {
+            initialTaskDisplay();
+        });
+    </script>
+
+</body>
+
+</html>
